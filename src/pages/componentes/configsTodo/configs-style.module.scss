@@ -1,0 +1,30 @@
+.configs {
+  display: flex;
+  padding: 14px 30px;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    color: hsl(236, 9%, 61%);
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    padding: 10px;
+    font-weight: 700;
+    color: hsl(236, 9%, 61%);
+  }
+
+  button:hover {
+    color: hsl(235, 19%, 35%);
+    cursor: pointer;
+  }
+
+  div {
+    button:first-child {
+      color: hsl(220, 98%, 61%);
+    }
+  }
+}
