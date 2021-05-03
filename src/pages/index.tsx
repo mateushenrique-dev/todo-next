@@ -1,30 +1,29 @@
 
 import style from './index.module.scss'
 import NewTodo from './componentes/newtodo'
-import Todo from './componentes/todo'
-import ConfigsTodo from './componentes/configsTodo'
+import Todos from './componentes/todos'
+import { TodoContextProvider } from '../contexts/todoContext'
 
 export default function Home() {
+
+
+  function toggleMode() {
+    document.body.classList.toggle('dark')
+  }
+
   return (
-    <>
+    <TodoContextProvider>
       <header className={style.header}/>
       <main className={style.main}>
-        <div className={style.mode}>
+        <section className={style.mode}>
           <h1 className={style.title}>ToDo</h1>
-          <div><img src="/icon-moon.svg" alt="Moon"/></div>
-        </div>
+          <div><img src="/icon-moon.svg" alt="Moon" onClick={toggleMode}/></div>
+        </section>
         <NewTodo />
         <div className={style.todos}>
-          <Todo className={style.firsttodo} content="Complete online JavaScript course"/>
-          <Todo content="Jag around the park 3x"/>
-          <Todo content="10 minutes meditation"/>
-          <Todo content="Read for 1 hour"/>
-          <Todo content="Pick up groceries"/>
-          <Todo className={style.lasttodo} content="Complete Todo App on Frontend Mentor"/>
-          <ConfigsTodo/>
+          <Todos />
         </div>
-        <p className={style.drag}>Drag and drop to reorder list</p>
       </main>
-    </>
+    </TodoContextProvider>
   )
 }

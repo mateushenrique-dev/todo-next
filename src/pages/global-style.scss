@@ -2,21 +2,119 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 label {
   display: inline-block;
-  width: 1.5rem;
+  width: 1.5rem !important;
   height: 1.5rem;
   border-radius: 50%;
   border: 1px solid hsl(233, 11%, 84%);
 }
 
-label:hover { 
+label:hover {
   border-color: hsl(236, 9%, 61%);
+}
+
+.checked {
+  label {
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+    div {
+      height: 100%;
+      width: 100%;
+      background: url("/icon-check.svg") no-repeat center !important;
+    }
+  }
+
+  span {
+    text-decoration: line-through;
+    color: hsl(233, 11%, 84%);
+  }
 }
 
 span {
   font-size: 18px;
+}
+
+body.dark {
+  background: hsl(235, 21%, 11%);
+
+  header {
+    background: url("/bg-desktop-dark.jpg");
+  }
+
+  div,
+  input {
+    background: hsl(235, 24%, 19%);
+    border-bottom-color: hsl(233, 14%, 35%);
+    color: #fff;
+
+    label {
+      border-color: hsl(233, 14%, 35%);
+    }
+  }
+
+  main {
+    section {
+      div {
+        background: transparent !important;
+      }
+    }
+
+    section + div {
+      border-color: transparent;
+    }
+  }
+
+  .checked {
+    label {
+      background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+      div {
+        height: 100%;
+        width: 100%;
+        background: url("/icon-check.svg") no-repeat center !important;
+      }
+    }
+    span {
+      color: hsl(237, 14%, 26%);
+    }
+  }
+}
+
+button.active {
+  color: hsl(220, 98%, 61%) !important;
+}
+
+.dragging {
+  opacity: 100;
+}
+
+.dragzone {
+  margin-bottom: 20px;
+}
+
+.allTodos {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+/* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
+e 10px de altura para a barra horizontal */
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50%;
+}
+
+/* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* aqui é a alça da barra, que demonstra a altura que você está na página
+  estou colocando uma cor azul clara nela*/
+::-webkit-scrollbar-thumb {
+  background: #2e9dd8;
 }

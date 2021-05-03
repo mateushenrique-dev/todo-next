@@ -1,15 +1,26 @@
+import { useTodoContext } from '../../../contexts/todoContext'
 import styles from './configs-style.module.scss'
 
 export default function() {
+
+  let { 
+    todos, 
+    tempTodos,
+    handleShowActive, 
+    handleShowCompleted, 
+    handleClearCompleted,
+    handleShowAll
+   } = useTodoContext()
+
   return (
-    <section className={styles.configs}>
-      <p>5 items left</p>
+    <div className={styles.configs} draggable="false">
+      <p>{tempTodos.length ? tempTodos.length : todos.length} Items</p>
       <div>
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick={handleShowAll}>All</button>
+        <button onClick={handleShowActive}>Active</button>
+        <button onClick={handleShowCompleted}>Completed</button>
       </div>
-      <button>Clear Completed</button>
-    </section>
+      <button onClick={handleClearCompleted}>Clear Completed</button>
+    </div>
   )
 }
